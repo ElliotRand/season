@@ -1,6 +1,7 @@
 import unittest
+from test_helpers import use_base_date
 
-from season import Season, get_current_season, is_spring, is_summer, is_autumn, is_winter, use_base_date
+from season import Season, get_current_season, is_spring, is_summer, is_autumn, is_winter
 
 @use_base_date("2025-05-10")
 class SeasonTestCase(unittest.TestCase):

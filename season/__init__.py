@@ -1,8 +1,7 @@
 import datetime
 from datetime import date
-from freezegun import freeze_time
 
-__all__ = ["Season", "is_spring", "is_summer", "is_autumn", "is_winter", "get_current_season", "use_base_date"]
+__all__ = ["Season", "is_spring", "is_summer", "is_autumn", "is_winter", "get_current_season"]
 
 season_months = {
     'spring': ['March', 'April', 'May'],
@@ -67,9 +66,6 @@ def is_autumn():
 
 def is_winter():
     return get_current_season() == 'winter'
-
-def use_base_date(date: str):
-    return freeze_time(date)
         
 class Season_(date):
     def __new__(cls, year, month, day):
