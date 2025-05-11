@@ -2,8 +2,6 @@ from datetime import date
 from datetime import datetime
 from calendar import Calendar
 
-from season import Season
-
 __all__ = ["calendar"]
 
 season_months = {
