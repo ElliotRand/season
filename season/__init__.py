@@ -1,5 +1,5 @@
-import datetime
 from datetime import date
+from datetime import datetime
 
 __all__ = ["Season", "is_spring", "is_summer", "is_autumn", "is_winter", "get_current_season"]
 
@@ -42,7 +42,7 @@ day_numbers = {
     'Sunday': 7,
 }
 
-def get_current_season(month=datetime.date.today().strftime("%B"), as_number=False):
+def get_current_season(month=date.today().strftime("%B"), as_number=False):
     for season, months in season_months.items():
         if month in months:
             return season_numbers[season] if as_number else season
@@ -102,6 +102,12 @@ class Season_(date):
                 return get_current_month(as_number=True)
             elif format == "%d":
                 return get_current_day(as_number=True)
+            elif format == "%H":
+                return datetime.now().hour
+            elif format == "%M":
+                return datetime.now().minute
+            elif format == "%S":
+                return datetime.now().second
             else:
                 return 0
         else:
@@ -109,6 +115,9 @@ class Season_(date):
             format = format.replace("%y", str(self.year))
             format = format.replace("%m", str(get_current_month(as_number=True)))
             format = format.replace("%d", str(get_current_day(as_number=True)))
+            format = format.replace("%H", str(datetime.now().hour))
+            format = format.replace("%M", str(datetime.now().minute))
+            format = format.replace("%S", str(datetime.now().second))
             return format
     
     def as_number(self):

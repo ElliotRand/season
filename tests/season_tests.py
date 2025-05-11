@@ -3,7 +3,7 @@ from test_helpers import use_base_date
 
 from season import Season, get_current_season, is_spring, is_summer, is_autumn, is_winter
 
-@use_base_date("2025-05-10")
+@use_base_date("2025-05-10 14:34:02")
 class SeasonTestCase(unittest.TestCase):
     def test_season_class_strftime(self):
         season = Season().strftime("%S")
@@ -80,6 +80,18 @@ class SeasonTestCase(unittest.TestCase):
     def test_season_class_strftime_day(self):
         day = Season().strftime("%D")
         self.assertEqual(day, 'Saturday')
+
+    def test_season_class_intftime_hour(self):
+        hour = Season().intftime("%H")
+        self.assertEqual(hour, 14)
+
+    def test_season_class_intftime_minute(self):
+        minute = Season().intftime("%M")
+        self.assertEqual(minute, 34)
+
+    def test_season_class_intftime_second(self):
+        second = Season().intftime("%S")
+        self.assertEqual(second, 2)
 
     def test_get_current_season(self):
         season = get_current_season()
