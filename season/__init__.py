@@ -1,7 +1,8 @@
 from datetime import date
 from datetime import datetime
+from . import calendar
 
-__all__ = ["Season", "is_spring", "is_summer", "is_autumn", "is_winter", "get_current_season"]
+__all__ = ["Season", "is_spring", "is_summer", "is_autumn", "is_winter", "get_current_season", "calendar"]
 
 season_months = {
     'spring': ['March', 'April', 'May'],
